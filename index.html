@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>FoundIt - Item Lost & Found</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+
+     
+
+     <body>
+
+    <nav class="navbar">
+
+        <div class="logo">
+            Found<span>It</span>
+        </div>
+
+        <div class="nav-links"> 
+    <a href="#home">Home</a> 
+    <a href="#lost-items">Lost Items</a> 
+    <a href="#found-items">Found Items</a> 
+    <a href="#report-item">Report Item</a> 
+</div>
+
+    </nav>
+
+     <section class="hero" id="home"> 
+
+        <div class="hero-content">
+
+            <h1>Lost Something? <span>FoundIt.</span></h1>
+
+            <p>
+                A simple college platform to report lost items,
+                find found items, and reconnect belongings with their owners.
+            </p>
+
+              <div class="hero-buttons">
+    <button onclick="goToLostItems()">Report Lost Item</button>
+    <button onclick="goToFoundItems()">Report Found Item</button>
+</div>
+
+        </div>
+
+    </section>
+    <section class="how-it-works">
+
+    <h2>How FoundIt Works</h2>
+
+    <p class="section-subtitle">
+        Finding your lost item is simple.
+    </p>
+
+    <div class="steps">
+
+        <div class="step-card">
+            <div class="step-number">1</div>
+            <h3>Report</h3>
+            <p>
+                Report an item you have lost or found on campus.
+            </p>
+        </div>
+
+        <div class="step-card">
+            <div class="step-number">2</div>
+            <h3>Search</h3>
+            <p>
+                Search for items using category, location, and other details.
+            </p>
+        </div>
+
+        <div class="step-card">
+            <div class="step-number">3</div>
+            <h3>Reunite</h3>
+            <p>
+                Connect with the person who lost or found the item.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+<section class="items-section">
+
+    <h2>Recent Lost & Found Items</h2>
+
+    <p class="section-subtitle">
+        Check if someone has reported an item you lost.
+    </p>
+
+    <div class="item-cards">
+
+        <div class="item-card">
+
+            <div class="item-image">
+                 <img src="Screenshot 2026-10-05 225440.png " alt="airbuds">
+                
+            </div>
+
+            <div class="item-info">
+                <span class="status lost">LOST</span>
+
+                <h3>AIRBUDS 161</h3>
+
+                <p>📍IN AIDS LAB 3</p>
+
+                <p>📅 4 October 2026</p>
+
+                 <button onclick="showDetails('Black color', 'LOST', 'in aids lab 3 machine no. 36', '4 October 2026')">
+    View Details
+</button>
+            </div>
+
+        </div>
+
+
+        <div class="item-card">
+
+            <div class="item-image">
+                 <img src="WhatsApp Image 2026-10-05 at 11.09.00 PM.jpeg " alt="idcard">
+            </div>
+
+            <div class="item-info">
+                <span class="status found">FOUND</span>
+
+                <h3>ID CARD</h3>
+
+                <p>📍 EL-103 Classroom</p>
+
+                <p>📅 3 October 2026</p>
+
+                 <button onclick="showDetails('college id card ', 'FOUND', 'EL-103 Classroom', '3 October 2026')">
+    View Details
+</button>
+            </div>
+
+        </div>
+
+
+        <div class="item-card">
+
+            <div class="item-image">
+                 <img src="image.png" alt="activa key">
+            </div>
+
+            <div class="item-info">
+                <span class="status lost">LOST</span>
+
+                <h3>Activa Keychain </h3>
+
+                <p>📍 Parking Area</p>
+
+                <p>📅 2 October 2026</p>
+
+                 <button onclick="showDetails('Keychain', 'LOST', 'Parking Area', '2 October 2026')">
+    View Details
+</button>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="item-card">
+
+    <div class="item-image">
+        <img src=" image copy.png" alt="silver Water Bottle">
+    </div>
+
+    <div class="item-info">
+        <span class="status found">FOUND</span>
+
+        <h3>silver Water Bottle</h3>
+
+        <p>📍 EL-204 classroom</p>
+
+        <p>📅 1 October 2026</p>
+
+         <button onclick="showDetails('silver Water Bottle', 'FOUND', 'EL-204 classroom', '1 October 2026')">
+    View Details
+</button>
+    </div>
+
+</div>
+
+</section>
+
+
+  <section class="report-section" id="report-item">
+
+    <h2>Report an Item</h2>
+
+    <p>Lost something or found something? Report it here.</p>
+
+    <button class="lost-btn" onclick="openLostForm()">
+        Report Lost Item
+    </button>
+
+     <button class="found-btn" onclick="openFoundForm()">
+    Report Found Item
+</button>
+<div id="foundForm" class="form-container">
+
+    <h2>Report Found Item</h2>
+
+    <input type="text" id="foundItemName" placeholder="Item Name">
+    <input type="file" id="foundImage" accept="image/*">
+    
+
+    <input type="text" id="foundLocation" placeholder="Where did you find it?">
+
+    <input type="date" id="foundDate">
+
+    <textarea id="foundDescription" placeholder="Describe the item"></textarea>
+
+    <input type="text" id="foundContact" placeholder="Your Contact Information">
+
+    <button class="submit-btn" onclick="submitFoundReport()">
+        Submit Found Report
+    </button>
+
+</div>
+     <section class="reported-items" id="lost-items">
+
+    <h2>Recently Reported Lost Items</h2>
+
+    <div id="reportedLostItems"></div>
+
+    <h2 id="found-items">Recently Reported Found Items</h2>
+
+    <div id="reportedFoundItems"></div>
+
+</section>
+
+
+
+<div id="lostForm" class="form-container">
+
+    <h2>Report Lost Item</h2>
+
+    <input type="text" id="lostItemName" placeholder="Item Name">
+    <input type="file" id="lostImage" accept="image/*">
+
+    <input type="text" id="lostLocation" placeholder="Where did you lose it?">
+
+    <input type="date" id="lostDate">
+
+    <textarea id="lostDescription" placeholder="Describe the item"></textarea>
+
+    <input type="text" id="lostContact" placeholder="Your Contact Information">
+
+    <button class="submit-btn" onclick="submitLostReport()">
+    Submit Lost Report
+</button>
+
+</div>
+
+<div id="detailsModal" class="modal">
+
+    <div class="modal-content">
+
+        <span class="close" onclick="closeDetails()">&times;</span>
+
+        <h2 id="modalTitle">Item Details</h2>
+
+        <p><strong>Status:</strong> <span id="modalStatus"></span></p>
+
+        <p><strong>Location:</strong> <span id="modalLocation"></span></p>
+
+        <p><strong>Date:</strong> <span id="modalDate"></span></p>
+
+        <button onclick="closeDetails()">Close</button>
+
+    </div>
+
+</div><div id="detailsModal" class="modal">
+
+    <div class="modal-content">
+
+        <span class="close" onclick="closeDetails()">&times;</span>
+
+        <h2 id="modalTitle">Item Details</h2>
+
+        <p><strong>Status:</strong> <span id="modalStatus"></span></p>
+
+        <p><strong>Location:</strong> <span id="modalLocation"></span></p>
+
+        <p><strong>Date:</strong> <span id="modalDate"></span></p>
+
+        <button onclick="closeDetails()">Close</button>
+
+    </div>
+
+</div>
+
+    <script src="script.js"></script>
+
+
+
+
+</body>
+</html>
